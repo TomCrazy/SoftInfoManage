@@ -1,0 +1,116 @@
+/* resets
+--------------------------------------------- */
+html,body,div,span,h1,p,a,img,strong,ul,li,form,label{margin:0;padding:0;font-size:100%;vertical-align:baseline;border:0;outline:0;background:transparent}
+body,html{height:100%}
+ol,ul{list-style:none}
+* {outline:0px;border:none;-moz-box-sizing: border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+::-webkit-input-placeholder, ::-moz-placeholder, ::-ms-input-placeholder {color: rgba(0,0,0,0.6)}
+
+/* master styles
+--------------------------------------------- */
+body {
+	background: #ffffff url(../img/bg.jpg);
+	background-size: cover;	
+	font-family: sans-serif;
+}
+
+	#header {
+		position:fixed;
+		top: 0;
+		width:100%;
+		padding-top:5px;
+		background-color:rgba(250,250,250,1);
+		font-size:16px;
+		text-align:center;
+		-moz-box-shadow: inset 0 0 30px rgba(200,240,250,0.5);
+		-webkit-box-shadow: inset 0 0 30px rgba(200,240,250,0.5);
+		box-shadow: inset 0 0 30px rgba(200,240,250,0.6), 0 1px 5px rgba(20,20,20,0.6);
+	}
+	
+	#header li {
+		padding-left: 10px;
+		padding-right:30px;
+	}
+		#header #logo {
+			float: left;
+		}
+		#contact, #instruction, #language {
+			float: right;
+		}
+	
+		#header a {
+			text-decoration: none;
+			color:rgba(100,100,100,0.9);
+			transition:all 0.2s ease-in;
+			-webkit-transition:all 0.2s ease-in;
+			-moz-transition:all 0.2s ease-in;
+			-o-transition:all 0.2s ease-in;
+		}
+			#header a:hover {
+				color:rgba(0,0,0,1);
+			}
+
+
+	#navi {
+		position: fixed;
+		top: 200px;
+		left: 20px;
+	}
+		
+		#ul_navi li {
+			position: relative;
+			margin-bottom: 20px;
+			display: block;
+			height: 0px;
+			line-height: 0px;
+			padding-right: 10px;
+			border: 15px solid rgba(200,240,250,0.7);
+			border-right-color: transparent; /*右边框透明，变成空缺的角*/
+			box-shadow: 0 5px 5px -5px #000;
+		}
+			#ul_navi li:after {
+				content: '';
+				position: absolute;
+				top: 15px;
+				left: -15px;
+				border: 4px solid rgba(180,190,200,0.7);
+				border-left-color: transparent;
+				border-bottom-color: transparent;
+			}
+			#ul_navi li:active {
+				top:2px;
+			}
+			#ul_navi li:hover {
+				border:15px solid rgba(200,220,240,1);
+				border-right-color: transparent;
+			}
+			#ul_navi a {
+				color: black;
+				font-weight: bold;
+				font-family: arial,'微软雅黑';
+				font-size: 16px;
+				text-decoration:none;
+			}
+
+
+	#content {
+		margin-top: 60px;
+		text-align: center;
+	}
+		.border {
+			margin: 10px auto;
+			max-width: 70%;
+			border: 2px solid #044BD9;
+		}
+			.image img {
+				margin: 5px auto;
+				max-width: 90%;
+			}
+
+			h3 {
+				margin-top: 20px;
+				font-family: arial,'楷体';
+				font-size:30px;
+				color:#000;
+				text-shadow:0 2px 2px rgba(0,0,0,0.5);
+			}

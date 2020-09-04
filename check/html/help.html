@@ -1,0 +1,70 @@
+
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>软件信息查询系统</title>
+		<link rel="icon" type="image/x-icon" href="../img/icon.png" />
+		<link rel="stylesheet" type="text/css" href="../css/help.css" />
+		<link rel="stylesheet" type="text/css" href="../css/window.css" />
+		<script type="text/javascript" src="../JS/function.js"></script>
+		<script type="text/javascript" src="../JS/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="../JS/window.js"></script>
+	</head>
+	
+	<body>
+		<div id="header">
+			<ul id="banner">
+				<li id="logo"><img src="../img/logo.png" width="115" height="25"></li>
+				<li id="language"><a href="../index.jsp">返回首页</a></li>
+				<li id="contact" onclick="contact_us()"><a href="#">联系我们</a></li>
+			</ul>
+		</div>
+
+		<div id="navi">
+			<ul id="ul_navi">
+				<li class="li1"><a href="#content">查询软件信息？</a></li>
+				<li class="li2"><a href="#2">查询订单信息？</a></li>
+				<li class="li3"><a href="#3">查询写片信息？</a></li>
+				<li class="li4"><a href="#4">中英版本切换？</a></li>
+			</ul>
+		</div>
+		
+		<div id="content">
+			<div>本网站属于公司内网范围，相关信息请注意保密，若需外网访问请通过VPN。此外，MES专用电脑等特定系统可能无法访问（此类系统自身有访问限制）。</div>
+			
+			<div class="border">
+				<h3>一、查询软件版本信息</h3>
+				<div>在搜索框中输入相关机型名称（支持模糊搜索），点击<strong>『搜机型』</strong>按钮，即可列出所有该机型相关的软件版本信息。</div>
+				<div class="image"><img src="../img/help/soft1.png" /></div>
+				<div>在搜索结果中点击具体的某机型，可以筛选该机型的精确信息。</div>
+				<div class="image"><img src="../img/help/soft2.png" /></div>
+				<a id="2"></a>
+			</div>
+			
+			<div class="border">
+				<h3>二、查询订单信息</h3>
+				<div>在搜索框中输入相关订单号或滚动计划号（支持模糊搜索），点击<strong>『搜订单』</strong>按钮，即可列出所有该订单号相关的订单信息。
+				<br/>注：该关键字匹配的是下图中“BOM”和“订单号”两行中的字符。</div>
+				<div class="image"><img src="../img/help/order1.png" /></div>
+				<div>搜索到相关订单信息后，通过点击<strong>『机型』</strong>行的机型名称，可以快捷搜索该机型的软件信息；
+				<br/>通过点击搜索结果底部的<strong>『展开详情』</strong>按钮可以查看详细订单信息。</div>
+				<a id="3"></a>
+			</div>
+			
+			<div class="border">
+				<h3>三、查询写片信息</h3>
+				<div>首先搜索相关订单信息，在搜索到订单信息后点击底部的<strong>『点击搜索』</strong>按钮可以查询该订单对应的写片信息。</div>
+				<div class="image"><img src="../img/help/burn1.png" /></div>
+			</div>
+			
+			<div id="4" class="border">
+				<h3>四、中英文版本切换</h3>
+				<div>通过点击页面右上角的<strong>『English』</strong>或<strong>『中文版』</strong>按钮可以在中英文之间切换语言。
+				<br/>注:针对相关查询结果中的人名、详细信息等某些不便翻译的内容未提供翻译结果，敬请谅解。</div>
+				<div class="image"><img src="../img/help/language1.png" /></div>
+			</div>
+		</div>
+	</body>
+	
+</html>
