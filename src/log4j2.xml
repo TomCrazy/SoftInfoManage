@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 该配置状态分为8个级别：从高到低：OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、ALL -->
+<Configuration status="OFF">
+ 
+  <Appenders>
+    <!-- 在控制台打印日志 -->
+    <Console name="Console" target="SYSTEM_OUT">
+    	<PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>
+    </Console>
+
+    <!-- Debug调试级别 -->
+    <File name="DebugLog" fileName="E:\SoftInfoMange\logs\debug.log">
+	    <Filters>
+	    	<ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+	    	<ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+	    </Filters>
+	    <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level 'record' - %msg%n"/> 
+    </File>
+    
+    <!-- Error调试级别 -->
+    <File name="ErrorLog" fileName="E:\SoftInfoMange\logs\error.log">
+    	<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/> 
+    	<PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>     
+    </File>
+    
+    <!--按日期滚动存储log信息，作为存档 -->
+    <RollingFile name="RecordLog" fileName="E:\SoftInfoMange\logs\records\currentRecord.log" filePattern="E:\SoftInfoMange\logs\records\record_%d{yyyy-MM-dd}.log" append="true">
+    	<!-- 输出格式 -->  
+        <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] \: %m%n"/>
+        <!-- 设置策略 -->
+        <Policies>
+        	<!-- 基于时间的触发策略。该策略主要是完成周期性的log文件封存工作。有两个参数：
+				interval：integer型，指定两次封存动作之间的时间间隔。单位:以日志的命名精度来确定单位，比如yyyy-MM-dd-HH 单位为小时，yyyy-MM-dd-HH-mm 单位为分钟
+				modulate：boolean型，说明是否对封存时间进行调制。若modulate=true，则封存时间将以0点为边界进行偏移计算。	-->
+			<!-- TimeBasedTriggeringPolicy需要和filePattern配套使用，由于filePattern配置的时间最小粒度是dd天，所以表示每一天新建一个文件保存日志。SizeBasedTriggeringPolicy表示当文件大小大于指定size时，生成新的文件保存日志。 --> 
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />  
+        </Policies>
+    </RollingFile>
+    
+  </Appenders>
+  
+  <!-- 定义Loggers，只有定义了Loggers并引入刚才的appender配置，配置才会生效 -->
+  <!-- 只定义error和record的Ref，会将error同时输出到error和record中，将debug只输出到record中 -->
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="ErrorLog"/>
+      <AppenderRef ref="RecordLog"/>
+    </Root>
+  </Loggers>
+</Configuration>
+
+
+<!-- 
+	日志输出格式设置：%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"
+	格式一览表:
+	%d: 输出日志发生时间，可进行格式{yyy-MM-dd HH:mm:ss.SSS}设置，也可不用
+	%-6level: 输出的级别信息右对齐，总长度为6字符；正数为左对齐，看个人习惯
+	%t: 输出产生该日志事件的线程名
+	%F: 输出日志信息所属的类的类名
+	%l: 输出日志事件的发生位置，即输出日志信息的语句处于它所在的类的第几行
+	%msg: 输出日志信息
+	%n: 换行
+	%c: 输出日志信息所属的类的全名
+	%c: 输出自应用启动到输出该日志信息所耗费的毫秒数
+-->
